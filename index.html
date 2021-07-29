@@ -1,126 +1,331 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <title>My LIFF App</title>
+  <div align="center">
   <style>
-    body { padding: 256px }
-    button { display: none; width: 50%; padding: 16px 0; margin: 16px auto }
+   body {padding: 25px;background-color: #46abb0;color: yellow;}
+   .button {width: 60%;padding: 8px 0;margin: 2px auto;font-size: 16px;border-radius: 10px;
+   background-color: #ffd86c;}
+   button {width: 100%;padding: 8px 0;margin: 2px auto;font-size: 20px;border-radius: 12px;
+   background-color: #d933ff;}
   </style>
+  </div>
 </head>
 <body>
-  <button id="btnShare" onclick="sendShare()"background-color: #ff00ff;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;>Share Secret Contents</button>
+  <button id="btnShare" onclick="sendShare()">Share Secret Contents</button>
   <button id="btnLogin" onclick="liff.login()">Log In</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
-  <script src=" https://static.line-scdn.net/liff/edge/versions/2.9.0/sdk.js"></script>
+  <script src=" https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
   <script>
     async function sendShare() {
       const result = await liff.shareTargetPicker([
-      {
-    "type": "flex",
-    "altText": "This is a Flex message",
-    "contents":  {
-  "type": "bubble",
-  "size": "giga",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
+        {
+          "type": "flex",
+          "altText": "Flex Message",
+          "contents": {
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
         "type": "image",
-        "url": "https://drive.google.com/uc?id=16lLjQ_Eq2oCr8LapOeijs3kxWAQIMZ6e",
         "size": "full",
+        "aspectRatio": "1:1",
         "aspectMode": "cover",
-        "aspectRatio": "4:5",
-        "gravity": "center"
+        "url": "https://drive.google.com/uc?id=1mRWQMpJprirKovTPrRjPwUCQsROxpEUO"
       },
-      {
+      "body": {
         "type": "box",
         "layout": "vertical",
-        "contents": [],
-        "position": "absolute",
-        "background": {
-          "type": "linearGradient",
-          "angle": "0deg",
-          "endColor": "#00000000",
-          "startColor": "#00000099"
-        },
-        "width": "100%",
-        "height": "40%",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px"
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
+        "spacing": "sm",
         "contents": [
           {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "horizontal",
-                "contents": []
-              },
-              {
-                "type": "box",
-                "layout": "horizontal",
-                "contents": [
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "contents": [
-                      {
-                        "type": "text",
-                        "color": "#EAEDED",
-                        "size": "sm",
-                        "flex": 0,
-                        "align": "end",
-                        "offsetEnd": "none",
-                        "action": {
-                          "type": "uri",
-                          "label": "รายละเอียดเพิ่มเติม",
-                          "uri": "https://www.dhammahome.com/"
-                        },
-                        "text": "กด ดูรายละเอียดเพิ่มเติม"
-                      }
-                    ],
-                    "flex": 0,
-                    "spacing": "lg"
-                  }
-                ]
-              }
-            ],
-            "spacing": "xs"
+            "type": "text",
+            "text": "สินค้าใหม่ เตะตา",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "ภาพสินค้า 4 + 1 ภาพ",
+            "maxLines": 2,
+            "wrap": true,
+            "size": "lg",
+            "style": "italic"
           }
         ],
-        "position": "absolute",
-        "offsetBottom": "0px",
-        "offsetStart": "0px",
-        "offsetEnd": "0px",
-        "paddingAll": "20px"
+        "margin": "none",
+        "height": "100px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "action": {
+              "type": "uri",
+              "label": "ดูสินค้า",
+              "uri": "https://shop.line.me/@774rimte/product/321099811"
+            }
+          },
+          {
+            "type": "text",
+            "text": "เลื่อนไปด้านซ้ายเพื่อดูรูปต่อไป",
+            "margin": "md",
+            "style": "italic",
+            "weight": "bold",
+            "align": "center",
+            "gravity": "center",
+            "adjustMode": "shrink-to-fit",
+            "color": "#cfe0f0"
+          }
+        ]
       }
-    ],
-    "paddingAll": "0px"
-  }
- }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "20:17",
+        "aspectMode": "cover",
+        "url": "https://drive.google.com/uc?id=1qvBiFoAWgIXDK26siqXJ_6E5TuTG1R-H"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "none",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ไม่เสียค่าโฆษณาไม่เสียค่าบรอดแคส",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ส่งได้ไม่จำกัดไม่เสียค่ารายเดือน",
+                "wrap": true,
+                "weight": "bold",
+                "size": "xl",
+                "flex": 0
+              }
+            ]
+          }
+        ],
+        "margin": "none",
+        "height": "100px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "action": {
+              "type": "uri",
+              "label": "ซื้อเลย",
+              "uri": "https://shop.line.me/@774rimte/product/320662332"
+            }
+          },
+          {
+            "type": "text",
+            "text": "เลื่อนไปด้านซ้ายเพื่อดูรูปต่อไป",
+            "margin": "md",
+            "style": "italic",
+            "weight": "bold",
+            "align": "center",
+            "gravity": "center",
+            "adjustMode": "shrink-to-fit",
+            "color": "#cfe0f0"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "1:1",
+        "aspectMode": "cover",
+        "url": "https://drive.google.com/uc?id=1AybKnKOzW5SCHNC3Ktek72AVto5dS_5B"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "สร้างไลน์แชทบอท FB เพจและLine OA",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ตอบได้ทั้ง เพจ และไลน์ OA",
+                "wrap": true,
+                "weight": "bold",
+                "size": "lg",
+                "flex": 0
+              }
+            ]
+          }
+        ],
+        "margin": "none",
+        "height": "100px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "action": {
+              "type": "uri",
+              "label": "ดูสินค้า",
+              "uri": "https://shop.line.me/@774rimte/product/320766483"
+            }
+          },
+          {
+            "type": "text",
+            "text": "เลื่อนไปด้านซ้ายเพื่อดูรูปต่อไป",
+            "margin": "md",
+            "style": "italic",
+            "weight": "bold",
+            "align": "center",
+            "gravity": "center",
+            "adjustMode": "shrink-to-fit",
+            "color": "#cfe0f0"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "size": "full",
+        "aspectRatio": "1:1",
+        "aspectMode": "cover",
+        "url": "https://drive.google.com/uc?id=1jjDmFAx3HeYliwNLquXuMQQt31chUiJ3"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "สร้างบัญชีทั่วไป 1 ,ไลน์มายช็อป 1 ",
+            "wrap": true,
+            "weight": "bold",
+            "size": "xl"
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ระยะเวลาทำงาน 2 วัน",
+                "wrap": true,
+                "weight": "bold",
+                "size": "lg",
+                "flex": 0
+              }
+            ]
+          }
+        ],
+        "margin": "none",
+        "height": "100px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "action": {
+              "type": "uri",
+              "label": "ดูสินค้า",
+              "uri": "https://shop.line.me/@774rimte/product/320766426"
+            }
+          },
+          {
+            "type": "text",
+            "text": "เลื่อนไปด้านซ้ายเพื่อดูรูปต่อไป",
+            "margin": "md",
+            "style": "italic",
+            "weight": "bold",
+            "align": "center",
+            "gravity": "center",
+            "adjustMode": "shrink-to-fit",
+            "color": "#cfe0f0"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "flex": 1,
+            "gravity": "center",
+            "action": {
+              "type": "uri",
+              "label": "แชร์ให้เพื่อน-กดที่นี่",
+              "uri": "https://cutt.ly/SLIDE-ad"
+            }
+          }
+        ]
+      },
+      "styles": {
+        "hero": {
+          "backgroundColor": "#FCE1F8"
+        }
+      }
+    }
+  ]
 }
-      
+        }
       ])
       if (result) {
-        alert(`[${result.status}] Secret Contents Send!`)
+        alert(`[${result.status}] Message sent!`)
       } else {
         const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
 
@@ -139,7 +344,7 @@
       window.location.reload()
     }
     async function main() {
-      await liff.init({ liffId: "1655706043-JoajkGO9" })
+      await liff.init({ liffId: "1655990659-yKjMrzGZ" })
       if (liff.isLoggedIn()) {
         document.getElementById("btnShare").style.display = "block"
         if (!liff.isInClient()) {
